@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
+    allowedHosts: [
+      'lead-frontend.onrender.com'
+    ],
     proxy: {
       '/api': {
         target: 'https://lead-backend-o70f.onrender.com/',
@@ -14,4 +17,11 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    host: '0.0.0.0',
+    port: process.env.PORT ? +process.env.PORT : 4173,
+    allowedHosts: [
+      'lead-frontend.onrender.com'
+    ]
+  }
 });
